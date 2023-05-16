@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:weather_app/app_constants.dart';
+import 'package:weather_app/src/views/screens/home_screen.dart';
 import 'package:weather_app/src/views/widgets/custom_background_image.dart';
 import 'package:weather_app/src/views/widgets/custom_loading_bar.dart';
 import 'package:weather_app/src/views/widgets/custom_page_title.dart';
@@ -16,7 +18,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   void initState() {
     super.initState();
     // Go to main screen
-    // Future.delayed(const Duration(seconds: defaultSplashScreenTime)).then((value) => Get.offAll(Container()));
+    Future.delayed(const Duration(seconds: defaultSplashScreenTime)).then((_) => Get.offAll(() => const HomeScreen()));
   }
 
   @override
