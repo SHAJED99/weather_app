@@ -28,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: SingleChildScrollView(
               child: Container(
-                constraints: BoxConstraints(minHeight: boxConstraints.maxHeight + 0.1),
-                padding: const EdgeInsets.symmetric(vertical: defaultPadding / 2, horizontal: defaultPadding),
+                constraints: BoxConstraints(minHeight: boxConstraints.maxHeight + 0.1, minWidth: boxConstraints.maxWidth),
+                padding: const EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding),
                 child: const Column(
                   children: [
                     CustomPageTitle(title: "Current Weather"),
