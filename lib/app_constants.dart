@@ -1,6 +1,8 @@
-// Colors
 import 'package:flutter/material.dart';
 
+String api = "openweathermap.org";
+
+// Color
 const MaterialColor defaultPrimarySwatch = MaterialColor(
   0xFF5130A7,
   <int, Color>{

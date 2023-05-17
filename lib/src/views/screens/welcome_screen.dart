@@ -27,27 +27,39 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-            child: Center(
-          child: Container(
-            constraints: const BoxConstraints(maxWidth: defaultMaxWidth),
-            padding: const EdgeInsets.all(defaultPadding),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Title
-                const SizedBox(height: defaultPadding),
-                const CustomPageTitle(title: "Weather App"),
-                const SizedBox(height: defaultPadding / 2),
-                // Subtitle
-                Text("This is a dummy app", style: defaultSubtitle1.copyWith(color: Theme.of(context).canvasColor), textAlign: TextAlign.center),
-                const SizedBox(height: defaultPadding),
-                CustomCircularProgressBar(
-                  color: Theme.of(context).canvasColor,
-                )
-              ],
-            ),
+          child: Stack(
+            children: [
+              Center(
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: defaultMaxWidth),
+                  padding: const EdgeInsets.all(defaultPadding),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Title
+
+                      const CustomPageTitle(title: "Weather App"),
+                      const SizedBox(height: defaultPadding / 2),
+                      // Subtitle
+                      Text(api, style: defaultSubtitle1.copyWith(color: Theme.of(context).canvasColor), textAlign: TextAlign.center),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: defaultPadding * 2,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: CustomCircularProgressBar(
+                    color: Theme.of(context).canvasColor,
+                  ),
+                ),
+              ),
+            ],
           ),
-        )),
+        ),
       ),
     );
   }

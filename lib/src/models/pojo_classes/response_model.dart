@@ -1,4 +1,4 @@
-class Response {
+class ApiResponse {
   Coord? coord;
   List<Weather>? weather;
   String? base;
@@ -13,9 +13,9 @@ class Response {
   String? name;
   int? cod;
 
-  Response({this.coord, this.weather, this.base, this.main, this.visibility, this.wind, this.clouds, this.dt, this.sys, this.timezone, this.id, this.name, this.cod});
+  ApiResponse({this.coord, this.weather, this.base, this.main, this.visibility, this.wind, this.clouds, this.dt, this.sys, this.timezone, this.id, this.name, this.cod});
 
-  Response.fromJson(Map<String, dynamic> json) {
+  ApiResponse.fromJson(Map<String, dynamic> json) {
     coord = json['coord'] != null ? Coord.fromJson(json['coord']) : null;
     if (json['weather'] != null) {
       weather = <Weather>[];

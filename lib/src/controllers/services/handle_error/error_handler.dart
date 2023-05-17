@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:weather_app/src/controllers/services/handle_error/app_exceptions.dart';
 
 class ErrorHandler {
@@ -21,6 +22,10 @@ class ErrorHandler {
       if (kDebugMode) print("ErrorHandler: ServiceUnavailableException");
       if (showError) ServiceUnavailable();
       return ErrorType.serviceUnavailable;
+    } on PlatformException {
+      if (kDebugMode) print("ErrorHandler: UnablePermissionException");
+      if (showError) UnablePermission();
+      return ErrorType.platformException;
     } catch (e) {
       if (e == 401) {
         if (kDebugMode) print("ErrorHandler: UnauthorizedException");
@@ -41,5 +46,6 @@ enum ErrorType {
   requestTimeOut,
   invalidUser,
   serviceUnavailable,
+  platformException,
   unknownError,
 }

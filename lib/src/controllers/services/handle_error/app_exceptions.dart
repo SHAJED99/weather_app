@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/app_constants.dart';
 import 'package:weather_app/src/controllers/services/user_message/snackbar.dart';
 
-abstract class AppExceptions {
+abstract class AppExceptions implements Exception {
   final String prefix;
   final String message;
 
@@ -38,4 +38,8 @@ class ServiceUnavailable extends AppExceptions {
 // 5
 class InvalidUser extends AppExceptions {
   InvalidUser({String? message}) : super(prefix: "Error", message: "Invalid user. ${message ?? ""}");
+}
+
+class UnablePermission extends AppExceptions {
+  UnablePermission({String? message}) : super(prefix: "Error", message: "Permission denied. Please give permission. ${message ?? ""}");
 }
