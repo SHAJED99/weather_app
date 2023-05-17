@@ -50,38 +50,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      // If Loading
                       if (dataController.response.value == null && dataController.isRequesting.value)
                         CustomCircularProgressBar(
                           color: Theme.of(context).canvasColor,
                         ),
+                      // If data found
                       if (dataController.response.value != null)
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            // Location
                             Text(
                               "${dataController.response.value?.name ?? ""}, ${dataController.response.value?.sys?.country ?? ""}",
                               style: defaultTitleStyle1.copyWith(color: Theme.of(context).canvasColor),
                             ),
                             const SizedBox(height: defaultPadding),
+                            // Time
                             Text(
                               "Updated: ${DateFormat("yyyy-MM-dd HH:mm").format(dataController.timeNow.value ?? DateTime.now())}",
                               style: defaultSubtitle1,
                             ),
                             const SizedBox(height: defaultPadding * 2),
+                            // Weather Status
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                // Image
                                 SizedBox(
                                   height: defaultBoxHeight,
                                   width: defaultBoxHeight,
                                   child: WeatherImage(location: "${dataController.response.value?.weather?[0].description}"),
                                 ),
                                 const SizedBox(width: defaultPadding),
+                                // Temp
                                 Text(
                                   "${dataController.response.value?.main?.feelsLike}°",
-                                  style: buttonText1,
+                                  style: defaultWeatherText,
                                 ),
                                 const SizedBox(width: defaultPadding),
+                                // Min max temp
                                 Column(
                                   children: [
                                     Text("max: ${dataController.response.value?.main?.tempMax}°", style: defaultSubtitle1),
@@ -91,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             const SizedBox(height: defaultPadding * 2),
+                            // Status
                             CustomPageTitle(title: (dataController.response.value?.weather?[0].description ?? "").capitalizeFirst ?? ""),
                           ],
                         ),

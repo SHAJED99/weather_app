@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 String api = "openweathermap.org";
 
@@ -39,12 +40,12 @@ const TextStyle defaultSubtitle1 = TextStyle(
   fontWeight: FontWeight.w500,
   color: defaultGreyColor,
 );
-const TextStyle defaultSubtitle2 = TextStyle(
-  fontSize: 10,
-  fontWeight: FontWeight.w700,
-  color: defaultGreyColor,
-  height: 1,
+TextStyle defaultWeatherText = GoogleFonts.courgette(
+  fontSize: 16,
+  color: defaultWhiteColor,
+  fontWeight: FontWeight.bold,
 );
+
 const TextStyle buttonText1 = TextStyle(
   fontSize: 16,
   height: 1,
