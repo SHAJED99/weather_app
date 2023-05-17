@@ -7,6 +7,7 @@ void showSnackBar({required String title, required String message, Widget? icon}
     title,
     message,
     icon: icon,
+    colorText: defaultWhiteColor,
     borderRadius: defaultPadding / 2,
     padding: const EdgeInsets.all(defaultPadding),
     margin: const EdgeInsets.all(defaultPadding),
