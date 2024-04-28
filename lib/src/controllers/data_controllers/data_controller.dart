@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:weather_app/src/controllers/local_data_controller/local_data_handler.dart';
+import 'package:weather_app/src/controllers/services/api/api_services.dart';
 import 'package:weather_app/src/controllers/services/dev_functions/dev_print.dart';
+import 'package:weather_app/src/controllers/services/error_handlers/error_handler.dart';
 
 class DataController extends GetxController {
   bool _isInit = false;
   final Rx<PackageInfo?> packageInfo = Rxn();
   late final LocalDataHandler localData;
+  late final ApiServices _apiServices;
+  late final ErrorHandler _errorHandler;
 
   Future<void> runApp() async {
     if (_isInit) return;
@@ -20,6 +24,8 @@ class DataController extends GetxController {
 
   Future<void> _initApp() async {
     localData = Get.put(LocalDataHandler());
+    _apiServices = Get.put(ApiServices());
+    _errorHandler = ErrorHandler();
   }
 
   Future<void> _startupTask() async {

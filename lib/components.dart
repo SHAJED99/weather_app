@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 //! ------------------------------------------------------------------------------------------------ Company Information
 const baseCompanyName = "Steadfast IT";
 const projectName = "Weather App";
+const apiKey = "9acf097684284de081d101516242804";
+const baseLink = "http://api.weatherapi.com/v1/";
 
 const urlTOS = "";
 const urlPP = "";
@@ -25,6 +27,7 @@ get borderWidth2 => 2.sp;
 //! ------------------------------------------------------------------------------------------------ Time
 const defaultSplashScreenShow = Duration(seconds: 3);
 const defaultDuration = Duration(milliseconds: 500);
+const apiCallTimeOut = Duration(seconds: 30);
 
 //! ------------------------------------------------------------------------------------------------ Color
 const primaryColor = Color(0xff378CE7);
