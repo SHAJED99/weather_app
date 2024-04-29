@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rive/rive.dart';
 import 'package:weather_app/components.dart';
 import 'package:weather_app/src/controllers/screen_controllers/splash_screen_controller.dart';
 import 'package:weather_app/src/controllers/services/dev_functions/dev_scaffold.dart';
@@ -63,7 +64,7 @@ class _Icon extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(defaultPadding),
             constraints: BoxConstraints(maxWidth: defaultBoxHeight * 6),
-            child: Lottie.asset("lib/assets/animation/starting.json"),
+            child: const RiveAnimation.asset("lib/assets/animation/starting.riv", useArtboardSize: true),
           ),
 
           //! Project Name

@@ -12,21 +12,21 @@ class ErrorHandler {
 
   Future<ResponseModel> errorHandler({bool showError = true, required Future Function() function}) async {
     // //!
-    Tuple2<ErrorType, int?> res = await _errorHandler(
-      showError: showError,
-      function: () async => await function(),
-    );
+    // Tuple2<ErrorType, int?> res = await _errorHandler(
+    //   showError: showError,
+    //   function: () async => await function(),
+    // );
 
-    //! -------------------------------------------------------------------------------------------- Refreshing token
-    if (res.item1 == ErrorType.invalidUser) {
-      if (showError) InvalidUser();
-    }
+    // //! -------------------------------------------------------------------------------------------- Refreshing token
+    // if (res.item1 == ErrorType.invalidUser) {
+    //   if (showError) InvalidUser();
+    // }
 
-    return ResponseModel(isSuccess: res.item1 == ErrorType.done, statusCode: res.item2 ?? -1);
+    // return ResponseModel(isSuccess: res.item1 == ErrorType.done, statusCode: res.item2 ?? -1);
 
     // !
-    // await function();
-    // return ResponseModel(isSuccess: true, statusCode: 200);
+    await function();
+    return ResponseModel(isSuccess: true, statusCode: 200);
   }
 
   Future<Tuple2<ErrorType, int?>> _errorHandler({bool showError = true, required Function function}) async {

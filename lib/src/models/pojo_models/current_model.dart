@@ -1,27 +1,27 @@
 import 'package:weather_app/src/models/pojo_models/condition_model.dart';
 
 class CurrentModel {
-  int lastUpdatedEpoch;
+  double lastUpdatedEpoch;
   String lastUpdated;
-  int tempC;
+  double tempC;
   double tempF;
-  int isDay;
+  double isDay;
   ConditionModel condition;
   double windMph;
   double windKph;
-  int windDegree;
+  double windDegree;
   String windDir;
-  int pressureMb;
+  double pressureMb;
   double pressureIn;
   double precipMm;
-  int precipIn;
-  int humidity;
-  int cloud;
+  double precipIn;
+  double humidity;
+  double cloud;
   double feelslikeC;
   double feelslikeF;
-  int visKm;
-  int visMiles;
-  int uv;
+  double visKm;
+  double visMiles;
+  double uv;
   double gustMph;
   double gustKph;
 
@@ -51,29 +51,32 @@ class CurrentModel {
     this.gustKph = -1,
   }) : condition = condition ?? ConditionModel();
 
+  // double.tryParse(
+  // .toString()) ?? -1
+
   factory CurrentModel.fromJson(Map<String, dynamic> json) {
     CurrentModel res = CurrentModel();
-    if (json['last_updated_epoch'] != null) res.lastUpdatedEpoch = json['last_updated_epoch'];
+    if (json['last_updated_epoch'] != null) res.lastUpdatedEpoch = double.tryParse(json['last_updated_epoch'].toString()) ?? -1;
     if (json['last_updated'] != null) res.lastUpdated = json['last_updated'];
-    if (json['temp_c'] != null) res.tempC = json['temp_c'];
+    if (json['temp_c'] != null) res.tempC = double.tryParse(json['temp_c'].toString()) ?? -1;
     if (json['temp_f'] != null) res.tempF = double.tryParse(json['temp_f'].toString()) ?? -1;
-    if (json['is_day'] != null) res.isDay = json['is_day'];
+    if (json['is_day'] != null) res.isDay = double.tryParse(json['is_day'].toString()) ?? -1;
     if (json['condition'] != null) res.condition = ConditionModel.fromJson(json['condition']);
     if (json['wind_mph'] != null) res.windMph = double.tryParse(json['wind_mph'].toString()) ?? -1;
     if (json['wind_kph'] != null) res.windKph = double.tryParse(json['wind_kph'].toString()) ?? -1;
-    if (json['wind_degree'] != null) res.windDegree = json['wind_degree'];
-    if (json['wind_dir'] != null) res.windDir = json['wind_dir'];
-    if (json['pressure_mb'] != null) res.pressureMb = json['pressure_mb'];
+    if (json['wind_degree'] != null) res.windDegree = double.tryParse(json['wind_degree'].toString()) ?? -1;
+    if (json['wind_dir'] != null) res.windDir = json['wind_dir'].toString();
+    if (json['pressure_mb'] != null) res.pressureMb = double.tryParse(json['pressure_mb'].toString()) ?? -1;
     if (json['pressure_in'] != null) res.pressureIn = double.tryParse(json['pressure_in'].toString()) ?? -1;
     if (json['precip_mm'] != null) res.precipMm = double.tryParse(json['precip_mm'].toString()) ?? -1;
-    if (json['precip_in'] != null) res.precipIn = json['precip_in'];
-    if (json['humidity'] != null) res.humidity = json['humidity'];
-    if (json['cloud'] != null) res.cloud = json['cloud'];
+    if (json['precip_in'] != null) res.precipIn = double.tryParse(json['precip_in'].toString()) ?? -1;
+    if (json['humidity'] != null) res.humidity = double.tryParse(json['humidity'].toString()) ?? -1;
+    if (json['cloud'] != null) res.cloud = double.tryParse(json['cloud'].toString()) ?? -1;
     if (json['feelslike_c'] != null) res.feelslikeC = double.tryParse(json['feelslike_c'].toString()) ?? -1;
     if (json['feelslike_f'] != null) res.feelslikeF = double.tryParse(json['feelslike_f'].toString()) ?? -1;
-    if (json['vis_km'] != null) res.visKm = json['vis_km'];
-    if (json['vis_miles'] != null) res.visMiles = json['vis_miles'];
-    if (json['uv'] != null) res.uv = json['uv'];
+    if (json['vis_km'] != null) res.visKm = double.tryParse(json['vis_km'].toString()) ?? -1;
+    if (json['vis_miles'] != null) res.visMiles = double.tryParse(json['vis_miles'].toString()) ?? -1;
+    if (json['uv'] != null) res.uv = double.tryParse(json['uv'].toString()) ?? -1;
     if (json['gust_mph'] != null) res.gustMph = double.tryParse(json['gust_mph'].toString()) ?? -1;
     if (json['gust_kph'] != null) res.gustKph = double.tryParse(json['gust_kph'].toString()) ?? -1;
 

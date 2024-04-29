@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/components.dart';
 import 'package:weather_app/src/controllers/services/functions/color_conversion.dart';
 
 class CustomBackground extends StatelessWidget {
@@ -8,8 +9,12 @@ class CustomBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = Theme.of(context);
-    return Container(
-      decoration: BoxDecoration(gradient: t.customGetBackgroundGradient),
+    return AnimatedContainer(
+      duration: defaultDuration,
+      decoration: BoxDecoration(
+        gradient: t.customGetBackgroundGradient,
+        color: t.colorScheme.primary,
+      ),
       child: child,
     );
   }

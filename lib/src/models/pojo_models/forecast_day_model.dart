@@ -5,7 +5,7 @@ import 'package:weather_app/src/models/pojo_models/hour_model.dart';
 
 class ForecastdayModel {
   String date;
-  int dateEpoch;
+  double dateEpoch;
   DayModel day;
   AstroModel astro;
   List<HourModel> hour;
@@ -22,7 +22,7 @@ class ForecastdayModel {
   factory ForecastdayModel.fromJson(Map<String, dynamic> json) {
     ForecastdayModel res = ForecastdayModel();
     if (json['date'] != null) res.date = json['date'];
-    if (json['date_epoch'] != null) res.dateEpoch = json['date_epoch'];
+    if (json['date_epoch'] != null) res.dateEpoch = double.tryParse(json['date_epoch'].toString()) ?? -1;
     if (json['day'] != null) res.day = DayModel.fromJson(json['day']);
     if (json['astro'] != null) res.astro = AstroModel.fromJson(json['astro']);
     res.hour = json.customToMapList("hour").map((e) => HourModel.fromJson(e)).toList();

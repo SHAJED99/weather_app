@@ -1,7 +1,7 @@
 class ConditionModel {
   String text;
   String icon;
-  int code;
+  double code;
 
   ConditionModel({this.text = "", this.icon = "", this.code = -1});
 
@@ -9,7 +9,7 @@ class ConditionModel {
     return ConditionModel(
       text: json['text'] ?? "",
       icon: json['icon'] ?? "",
-      code: json['code'] ?? -1,
+      code: double.tryParse(json['code'].toString()) ?? -1,
     );
   }
 }

@@ -5,7 +5,7 @@ class LocationModel {
   double lat;
   double lon;
   String tzId;
-  int localtimeEpoch;
+  double localtimeEpoch;
   String localtime;
 
   LocationModel({this.name = "", this.region = "", this.country = "", this.lat = -1, this.lon = -1, this.tzId = "", this.localtimeEpoch = -1, this.localtime = ""});
@@ -18,7 +18,7 @@ class LocationModel {
     if (json['lat'] != null) res.lat = double.tryParse(json['lat'].toString()) ?? -1;
     if (json['lon'] != null) res.lon = double.tryParse(json['lon'].toString()) ?? -1;
     if (json['tz_id'] != null) res.tzId = json['tz_id'];
-    if (json['localtime_epoch'] != null) res.localtimeEpoch = int.tryParse(json['localtime_epoch'].toString()) ?? -1;
+    if (json['localtime_epoch'] != null) res.localtimeEpoch = double.tryParse(json['localtime_epoch'].toString()) ?? -1;
     if (json['localtime'] != null) res.localtime = json['localtime'];
 
     return res;

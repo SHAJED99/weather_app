@@ -4,9 +4,9 @@ class AstroModel {
   String moonrise;
   String moonset;
   String moonPhase;
-  int moonIllumination;
-  int isMoonUp;
-  int isSunUp;
+  double moonIllumination;
+  double isMoonUp;
+  double isSunUp;
 
   AstroModel({
     this.sunrise = "",
@@ -26,9 +26,9 @@ class AstroModel {
     res.moonrise = json['moonrise'] ?? "";
     res.moonset = json['moonset'] ?? "";
     res.moonPhase = json['moon_phase'] ?? "";
-    res.moonIllumination = json['moon_illumination'] ?? -1;
-    res.isMoonUp = json['is_moon_up'] ?? -1;
-    res.isSunUp = json['is_sun_up'] ?? -1;
+    res.moonIllumination = double.tryParse(json['moon_illumination'].toString()) ?? -1;
+    res.isMoonUp = double.tryParse(json['is_moon_up'].toString()) ?? -1;
+    res.isSunUp = double.tryParse(json['is_sun_up'].toString()) ?? -1;
     return res;
   }
 }

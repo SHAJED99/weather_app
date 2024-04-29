@@ -5,7 +5,7 @@ import 'package:weather_app/src/controllers/local_data_controller/local_data_han
 import 'package:weather_app/src/controllers/services/api/api_services.dart';
 import 'package:weather_app/src/controllers/services/dev_functions/dev_print.dart';
 import 'package:weather_app/src/controllers/services/error_handlers/error_handler.dart';
-import 'package:weather_app/src/models/response_models/weather_forcast_response_model.dart';
+import 'package:weather_app/src/models/response_models/weather_forecast_response_model.dart';
 
 class DataController extends GetxController {
   bool _isInit = false;

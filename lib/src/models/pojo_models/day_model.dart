@@ -11,16 +11,16 @@ class DayModel {
   double maxwindKph;
   double totalprecipMm;
   double totalprecipIn;
-  int totalsnowCm;
+  double totalsnowCm;
   double avgvisKm;
-  int avgvisMiles;
-  int avghumidity;
-  int dailyWillItRain;
-  int dailyChanceOfRain;
-  int dailyWillItSnow;
-  int dailyChanceOfSnow;
+  double avgvisMiles;
+  double avghumidity;
+  double dailyWillItRain;
+  double dailyChanceOfRain;
+  double dailyWillItSnow;
+  double dailyChanceOfSnow;
   ConditionModel condition;
-  int uv;
+  double uv;
 
   DayModel({
     this.maxtempC = -1,
@@ -57,16 +57,16 @@ class DayModel {
     if (json['maxwind_kph'] != null) res.maxwindKph = double.tryParse(json['maxwind_kph'].toString()) ?? -1;
     if (json['totalprecip_mm'] != null) res.totalprecipMm = double.tryParse(json['totalprecip_mm'].toString()) ?? -1;
     if (json['totalprecip_in'] != null) res.totalprecipIn = double.tryParse(json['totalprecip_in'].toString()) ?? -1;
-    if (json['totalsnow_cm'] != null) res.totalsnowCm = json['totalsnow_cm'];
+    if (json['totalsnow_cm'] != null) res.totalsnowCm = double.tryParse(json['totalsnow_cm'].toString()) ?? -1;
     if (json['avgvis_km'] != null) res.avgvisKm = double.tryParse(json['avgvis_km'].toString()) ?? -1;
-    if (json['avgvis_miles'] != null) res.avgvisMiles = json['avgvis_miles'];
-    if (json['avghumidity'] != null) res.avghumidity = json['avghumidity'];
-    if (json['daily_will_it_rain'] != null) res.dailyWillItRain = json['daily_will_it_rain'];
-    if (json['daily_chance_of_rain'] != null) res.dailyChanceOfRain = json['daily_chance_of_rain'];
-    if (json['daily_will_it_snow'] != null) res.dailyWillItSnow = json['daily_will_it_snow'];
-    if (json['daily_chance_of_snow'] != null) res.dailyChanceOfSnow = json['daily_chance_of_snow'];
+    if (json['avgvis_miles'] != null) res.avgvisMiles = double.tryParse(json['avgvis_miles'].toString()) ?? -1;
+    if (json['avghumidity'] != null) res.avghumidity = double.tryParse(json['avghumidity'].toString()) ?? -1;
+    if (json['daily_will_it_rain'] != null) res.dailyWillItRain = double.tryParse(json['daily_will_it_rain'].toString()) ?? -1;
+    if (json['daily_chance_of_rain'] != null) res.dailyChanceOfRain = double.tryParse(json['daily_chance_of_rain'].toString()) ?? -1;
+    if (json['daily_will_it_snow'] != null) res.dailyWillItSnow = double.tryParse(json['daily_will_it_snow'].toString()) ?? -1;
+    if (json['daily_chance_of_snow'] != null) res.dailyChanceOfSnow = double.tryParse(json['daily_chance_of_snow'].toString()) ?? -1;
     if (json['condition'] != null) res.condition = ConditionModel.fromJson(json['condition']);
-    if (json['uv'] != null) res.uv = json['uv'];
+    if (json['uv'] != null) res.uv = double.tryParse(json['uv'].toString()) ?? -1;
     return res;
   }
 }

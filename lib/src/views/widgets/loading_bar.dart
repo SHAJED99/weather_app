@@ -15,7 +15,7 @@ class CustomCircularProgressBar extends StatelessWidget {
         height: s,
         child: FittedBox(
           child: CircularProgressIndicator(
-            color: color ?? Theme.of(context).colorScheme.onPrimary,
+            color: color ?? Theme.of(context).colorScheme.onBackground,
             value: value == null ? null : value! / 100,
           ),
         ));
@@ -46,7 +46,7 @@ class CustomLinearProgressBar extends StatelessWidget {
           ? LinearProgressIndicator(
               value: value == null ? null : value! / 100,
               backgroundColor: Colors.transparent,
-              color: color ?? Theme.of(context).colorScheme.onPrimary.withOpacity(_opacity),
+              color: color ?? Theme.of(context).colorScheme.onBackground.withOpacity(_opacity),
             )
           : null,
     );
