@@ -5,6 +5,7 @@ import 'package:weather_app/src/controllers/local_data_controller/local_data_han
 import 'package:weather_app/src/controllers/services/api/api_services.dart';
 import 'package:weather_app/src/controllers/services/dev_functions/dev_print.dart';
 import 'package:weather_app/src/controllers/services/error_handlers/error_handler.dart';
+import 'package:weather_app/src/models/response_models/weather_forcast_response_model.dart';
 
 class DataController extends GetxController {
   bool _isInit = false;
@@ -47,4 +48,10 @@ class DataController extends GetxController {
   }
 
   void changeTheme({bool? isDarkMode}) => localData.localDataModel.appSetting.value = localData.localDataModel.appSetting.value.copyWith(isDarkMode: isDarkMode);
+
+  Future<WeatherForecastResponseModel?> getWeatherForecast(String lan, String long) async {
+    WeatherForecastResponseModel? res;
+    await _errorHandler.errorHandler(function: () async => res = await _apiServices.getWeatherForecast(lan, long));
+    return res;
+  }
 }

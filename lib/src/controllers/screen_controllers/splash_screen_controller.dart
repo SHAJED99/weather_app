@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:weather_app/components.dart';
 import 'package:weather_app/src/controllers/data_controllers/data_controller.dart';
+import 'package:weather_app/src/views/screens/main_screens.dart/dashboard_screen.dart';
 
 class SplashScreenController extends GetxController {
   final DataController _controller = Get.find();
@@ -25,6 +26,6 @@ class SplashScreenController extends GetxController {
   }
 
   void gotoHome() {
-    if (isSplashScreenDone.value && isInit.value) {}
+    // if (isSplashScreenDone.value && isInit.value) Get.offAll(() => const DashboardScreen());
   }
 }
