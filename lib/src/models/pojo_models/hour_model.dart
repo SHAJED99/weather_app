@@ -2,7 +2,7 @@ import 'package:weather_app/src/models/pojo_models/condition_model.dart';
 
 class HourModel {
   double timeEpoch;
-  String time;
+  DateTime time;
   double tempC;
   double tempF;
   double isDay;
@@ -38,7 +38,7 @@ class HourModel {
 
   HourModel({
     this.timeEpoch = -1,
-    this.time = "",
+    DateTime? time,
     this.tempC = -1,
     this.tempF = -1,
     this.isDay = -1,
@@ -71,12 +71,13 @@ class HourModel {
     this.gustMph = -1,
     this.gustKph = -1,
     this.uv = -1,
-  }) : condition = condition ?? ConditionModel();
+  })  : time = time ?? DateTime.now(),
+        condition = condition ?? ConditionModel();
 
   factory HourModel.fromJson(Map<String, dynamic> json) {
     HourModel res = HourModel();
     res.timeEpoch = double.tryParse(json['time_epoch'].toString()) ?? -1;
-    res.time = json['time'] ?? "";
+    if (json['time'] != null) res.time = DateTime.parse(json['time']);
     res.tempC = double.tryParse(json['temp_c'].toString()) ?? -1;
     res.tempF = double.tryParse(json['temp_f'].toString()) ?? -1;
     res.isDay = double.tryParse(json['is_day'].toString()) ?? -1;

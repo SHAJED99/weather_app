@@ -64,7 +64,8 @@ class _Icon extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(defaultPadding),
             constraints: BoxConstraints(maxWidth: defaultBoxHeight * 6),
-            child: const RiveAnimation.asset("lib/assets/animation/starting.riv", useArtboardSize: true),
+            child: Lottie.asset("lib/assets/animation/starting.json", addRepaintBoundary: true),
+            // child: const RiveAnimation.asset("lib/assets/animation/starting.riv", useArtboardSize: true),
           ),
 
           //! Project Name

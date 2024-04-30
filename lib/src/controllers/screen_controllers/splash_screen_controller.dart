@@ -26,6 +26,6 @@ class SplashScreenController extends GetxController {
   }
 
   void gotoHome() {
-    // if (isSplashScreenDone.value && isInit.value) Get.offAll(() => const DashboardScreen());
+    if (isSplashScreenDone.value && isInit.value) Get.offAll(() => const DashboardScreen());
   }
 }

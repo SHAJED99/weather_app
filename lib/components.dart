@@ -17,7 +17,7 @@ get baseScreenSize => const Size(360, 690);
 get defaultPadding => 24.sp;
 get defaultBoxHeight => defaultPadding * 2;
 const maxBoxWidth = 400.0;
-get carouselHeight => 300.sp;
+get carouselHeight => 200.sp;
 const Curve defaultCurve = Curves.easeInOut;
 
 //* Border
