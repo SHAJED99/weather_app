@@ -4,8 +4,8 @@ extension HttpResponseJson on http.Response {
   // Serialization function: Convert http.Response object to a JSON-compatible map
   Map<String, dynamic> get customToJson {
     return {
-      'statusCode': this.statusCode,
-      'body': this.body,
+      'statusCode': statusCode,
+      'body': body,
       // 'headers': this.headers.map,
     };
   }

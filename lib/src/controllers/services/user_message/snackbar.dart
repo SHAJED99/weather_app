@@ -60,32 +60,3 @@ void showToast({String? title = "Warning!", required String message}) {
     showSnackBar(title: title ?? "", message: message);
   }
 }
-
-Future<bool> showConfirmationMessage({
-  required String heading,
-  required String message,
-  Completer<void>? completer,
-}) async {
-  bool res = true;
-  await showSnackBar(
-    completer: completer,
-    animationDuration: const Duration(milliseconds: 100),
-    icon: const Icon(Icons.info),
-    title: heading,
-    message: message,
-    snackPosition: SnackPosition.BOTTOM,
-    padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2, vertical: defaultPadding),
-    mainButton: TextButton(
-      onPressed: () {
-        res = false;
-        Get.closeCurrentSnackbar();
-      },
-      child: const Text(
-        "Undo",
-        style: TextStyle(color: Colors.green),
-      ),
-    ),
-  );
-
-  return res;
-}
